@@ -84,7 +84,8 @@ header {
   margin-top: 5px;
 }
 .weather-app-temperature {
-  font-size: 88px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100px;
   text-decoration: bold;
 }
 .weather-app-unit {

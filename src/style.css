@@ -1,15 +1,108 @@
-h1 {
+body {
+  background-color: white;
+}
+
+a {
+  color: #885df1;
+}
+
+.weather-app-city {
   font-family: "Times New Roman", Times, serif;
-  size: 30px;
-  color: black;
+  size: 38px;
+  line-height: 48px;
+  color: rgb(68, 64, 64);
+  margin: 0;
   decoration: bold;
 }
 
 .weather-app {
-  background: whitesmoke;
+  background: rgb(152, 218, 242);
   max-width: 600px;
   margin: 45px auto;
   padding: 30px;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
   border-radius: 10px;
+}
+
+header {
+  border-bottom: 1px solid #f9f7fe;
+  padding: 0 0 30px 0;
+}
+.search-form-input {
+  background-color: rgb(201, 243, 228);
+  border: none;
+  border-radius: 6px;
+  width: 250px;
+  padding: 12px;
+  font-size: 15px 20px;
+}
+
+.search-form-button {
+  background: rgb(68, 68, 244);
+  color: white;
+  width: 100px;
+  padding: 5px;
+  border-color: blue;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 17px;
+  decoration: bold;
+}
+
+.search-form-button:hover {
+  background-color: rgb(201, 243, 228);
+  color: rgb(68, 64, 64);
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+
+.weather-app-data {
+  display: flex;
+  justify-content: space-between;
+}
+.date-time {
+  font-size: 18px;
+  text-decoration: bold;
+}
+.weather-app-details {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: rgb(68, 64, 64);
+  line-height: 20px;
+}
+
+.weather-app-details strong {
+  color: blue;
+}
+
+.weather-app-temperature-container {
+  display: flex;
+}
+
+.weather-app-icon {
+  font-size: 60px;
+  margin-top: 5px;
+}
+.weather-app-temperature {
+  font-size: 88px;
+  text-decoration: bold;
+}
+.weather-app-unit {
+  margin-top: 15px;
+  font-size: 30px;
+  text-decoration: bold;
+}
+main {
+  padding: 30px 0;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: (0, 0, 0, 0.6);
+  border-top: 1px solid #f9f7fe;
+  padding: 30px 0 0 0;
+}
+.coder {
+  color: rgb(244, 99, 201);
 }

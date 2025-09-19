@@ -3,36 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="weather-app">
-    <header>
-      <form class="search-form" id="search-form">
-        <input type="search" placeholder="Enter city..." required id="search-form-input" />
-        <input type="submit" value="Search" class="search-form" />
-      </form>
-    </header>
-    <main>
+      <header>
+        <form class="search-form" id="search-form">
+          <input
+            type="search"
+            placeholder="Enter city..."
+            required
+            class="search-form-input"
+          />
+          <input type="submit" value="Search" class="search-form-button" />
+        </form>
+      </header>
+      <main>
         <div class="weather-app-data">
           <div>
-      <h1 class="weather-app-city" id="city">Buenos Aires</h1>
-      <p class="weather-app-details">
-        Tuesday 14:49, scattered clouds
-        <br />
-        Humidity: 66%, Wind: 3 km/h
-      </p>
-     </div>
-     <div>🌥️ 12°C
-     </div>
-    </main>
-    <footer>
-      Coded by
-      <a href="https://github.com/agostina-rosso/" target="_blank"> Agostina</a>
-      hosted by <a href="https://github.com/" target="_blank">GitHub</a> on
-      <a href="https://www.netlify.com/" target="_blank">Netlify</a>
-    </footer>
+            <h1 class="weather-app-city" id="city">Buenos Aires</h1>
+            <p class="weather-app-details">
+              <div class="date-time">Tuesday 14:49, scattered clouds</div>
+              <br />
+              <strong>Humidity</strong>: 66%, <strong>Wind</strong>: 3 km/h
+            </p>
+          </div>
+          <div class="weather-app-temperature-container">
+            <div class="weather-app-icon">🌥️</div>
+            <div class="weather-app-temperature">12</div>
+            <div class="weather-app-unit">°C</div>
+            </div>
+            </div>
+      </main>
+      <footer>
+        Coded by
+        <a
+          href="https://github.com/agostina-rosso/"
+          target="_blank"
+          class="coder"
+        >
+          <strong>Agostina</strong></a
+        >
+        hosted by <a href="https://github.com/" target="_blank">GitHub</a> on
+        <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+      </footer>
     </div>
   </body>
 </html>

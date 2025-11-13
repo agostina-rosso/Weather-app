@@ -2,7 +2,14 @@ function refreshWeather(response) {
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = searchInput.value;
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeedElement = document.querySelector(#wind-speed);
+  let timeElement = document.querySelector("#time");
+  let date = new Date(response.data.time);
+  
+  icon.innerHTML = '<img src="${response.condition.icon_url}" class="weather-app-icon" />'
+  cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.inneSrHTML = "${response.data.temperature.humidity}%";

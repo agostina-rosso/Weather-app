@@ -3,8 +3,33 @@ function refreshWeather(response) {
   let temperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = searchInput.value;
+  timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.inneSrHTML = "${response.data.temperature.humidity}%";
+  windspeedElement.innerHTML = "${response.data.wind.speed}km/h";
   temperatureElement.innerHTML = Math.round(temperature);
+}
+
+function formatDate(date){
+  let day = date.getDay();
+
+  if (minutes < 10) {
+    minutes = '0${minutes}';
+  }
+  let minutes = date.getminutes();
+  let hours = date.getHours();
+  let days = {
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  };
+  let day = days[date.getDay()];
+
+  return '${day} ${hours}:${minutes}';
 }
 function searchCity(city) {
   let apiKey = "7e43t102ob02c30d9fabf0c6b85d4a1a";

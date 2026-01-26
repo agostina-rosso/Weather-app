@@ -16,6 +16,8 @@ function refreshWeather(response) {
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -61,14 +63,13 @@ function getForecast(city) {
   let apiKey = "7e43t102ob02c30d9fabf0c6b85d4a1a";
   let apiUrl =
     "https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=,metric";
-axios(apiUrl).then(displayForecast);
-  }
+  axios(apiUrl).then(displayForecast);
+}
 
 function displayForecast(response) {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let forecastHtml = "";
 
-  days.forEach(function (day) {
+  response.data.daily.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `
@@ -77,14 +78,14 @@ function displayForecast(response) {
 <div class="weather-forecast-icon">🌤️</div>
 <div class="weather-forecast-temperatures">
 <div class="weather-forecast-temperature">
-<strong>29º</strong>
+<strong>${Math.round(day.maximum)}º</strong>
 </div>
-<div class="weather-forecast-temperature">23º</div>
+<div class="weather-forecast-temperature">${Math.round(day.minimum)}º</div>
 </div>
 </div>
 `;
   });
-  let forecast = document.querySelector("#forecast");
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
 }
 
@@ -92,4 +93,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Buenos Aires");
-getForecast("Buenos Aires");

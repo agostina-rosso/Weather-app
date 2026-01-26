@@ -54,9 +54,6 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
-
 searchCity("Buenos Aires");
 
 function getForecast(city) {
@@ -69,15 +66,15 @@ function getForecast(city) {
 function displayForecast(response) {
   let forecastHtml = "";
 
-  response.data.daily.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
 <div class="weather-forecast-day">
 <div class="weather-forecast-date">${day}</div>
-<div class="weather-forecast-icon">
-<img src="${day.condition.icon_url}" />
-</div>
+
+<img src="${day.condition.icon_url}" class="weather-forecast-icon" />
 <div class="weather-forecast-temperatures">
 <div class="weather-forecast-temperature">
 <strong>${Math.round(day.maximum)}º</strong>
@@ -86,6 +83,7 @@ function displayForecast(response) {
 </div>
 </div>
 `;
+    }
   });
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;

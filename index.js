@@ -41,7 +41,7 @@ function formatDate(date) {
 
 function searchCity(city) {
   let apiKey = "7e43t102ob02c30d9fabf0c6b85d4a1a";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(refreshWeather);
 }
 
@@ -57,8 +57,15 @@ searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Buenos Aires");
 
-function displayForecast() {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+function getForecast(city) {
+  let apiKey = "7e43t102ob02c30d9fabf0c6b85d4a1a";
+  let apiUrl =
+    "https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=,metric";
+axios(apiUrl).then(displayForecast);
+  }
+
+function displayForecast(response) {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let forecastHtml = "";
 
   days.forEach(function (day) {
@@ -85,4 +92,4 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Buenos Aires");
-displayForecast();
+getForecast("Buenos Aires");

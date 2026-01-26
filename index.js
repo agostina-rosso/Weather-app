@@ -52,9 +52,15 @@ function handleSearchSubmit(event) {
   let searchInput = document.querySelector("#search-form-input");
 
   searchCity(searchInput.value);
+  searchCity("Buenos Aires");
 }
 
-searchCity("Buenos Aires");
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
 
 function getForecast(city) {
   let apiKey = "7e43t102ob02c30d9fabf0c6b85d4a1a";
@@ -72,7 +78,7 @@ function displayForecast(response) {
         forecastHtml +
         `
 <div class="weather-forecast-day">
-<div class="weather-forecast-date">${day}</div>
+<div class="weather-forecast-date">${formatDay(day.time)}</div>
 
 <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
 <div class="weather-forecast-temperatures">

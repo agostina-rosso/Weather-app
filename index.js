@@ -56,3 +56,33 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Buenos Aires");
+
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+<div class="weather-forecast-day">
+<div class="weather-forecast-date">${day}</div>
+<div class="weather-forecast-icon">🌤️</div>
+<div class="weather-forecast-temperatures">
+<div class="weather-forecast-temperature">
+<strong>29º</strong>
+</div>
+<div class="weather-forecast-temperature">23º</div>
+</div>
+</div>
+`;
+  });
+  let forecast = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Buenos Aires");
+displayForecast();

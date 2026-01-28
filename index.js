@@ -52,7 +52,6 @@ function handleSearchSubmit(event) {
   let searchInput = document.querySelector("#search-form-input");
 
   searchCity(searchInput.value);
-  searchCity("Buenos Aires");
 }
 
 function formatDay(timestamp) {
@@ -64,8 +63,7 @@ function formatDay(timestamp) {
 
 function getForecast(city) {
   let apiKey = "7e43t102ob02c30d9fabf0c6b85d4a1a";
-  let apiUrl =
-    "https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=,metric";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios(apiUrl).then(displayForecast);
 }
 
@@ -77,18 +75,18 @@ function displayForecast(response) {
       forecastHtml =
         forecastHtml +
         `
-<div class="weather-forecast-day">
-<div class="weather-forecast-date">${formatDay(day.time)}</div>
+          <div class="weather-forecast-day">
+          <div class="weather-forecast-date">${formatDay(day.time)}</div>
 
-<img src="${day.condition.icon_url}" class="weather-forecast-icon" />
-<div class="weather-forecast-temperatures">
-<div class="weather-forecast-temperature">
-<strong>${Math.round(day.maximum)}º</strong>
-</div>
-<div class="weather-forecast-temperature">${Math.round(day.minimum)}º</div>
-</div>
-</div>
-`;
+          <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
+          <div class="weather-forecast-temperatures">
+          <div class="weather-forecast-temperature">
+          <strong>${Math.round(day.temperature.maximum)}º</strong>
+          </div>
+          <div class="weather-forecast-temperature">${Math.round(day.temperature.minimum)}º</div>
+          </div>
+          </div>
+      `;
     }
   });
   let forecastElement = document.querySelector("#forecast");
